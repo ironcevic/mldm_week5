@@ -1,0 +1,10 @@
+&PROJWFC
+   outdir      = './',
+   prefix      = 'work',
+   filpdos     = 'pbe.pdos',
+   DeltaE      = 0.02,
+   Emin        = 5.0,
+   Emax        = 25.0,
+ /
+
+

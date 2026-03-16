@@ -1,0 +1,42 @@
+#------------------------------------------
+# NiO Vampire input (based on existing working template)
+#------------------------------------------
+
+#------------------------------------------
+# Creation attributes:
+#------------------------------------------
+dimensions:unit-cell-size = 4.18 !A
+dimensions:system-size-x = 4.18 !nm
+dimensions:system-size-y = 4.18 !nm
+dimensions:system-size-z = 4.18 !nm
+
+#------------------------------------------
+# Material file:
+#------------------------------------------
+material:file = NiO.mat
+
+#------------------------------------------
+# Simulation attributes:
+#------------------------------------------
+# Set temperature here when scanning for T_N
+sim:minimum-temperature = # initial temperature for scan
+sim:maximum-temperature = # final temperature for scan
+sim:temperature-increment = # temperature increment for scan
+sim:equilibration-time-steps = 100000
+sim:loop-time-steps = 200000
+sim:time-step = 1 !fs
+
+#------------------------------------------
+# Program and integrator details
+#------------------------------------------
+sim:program = curie-temperature
+sim:integrator = monte-carlo
+
+#------------------------------------------
+# Data output
+#------------------------------------------
+output:time-steps
+output:mean-specific-heat
+
+screen:time-steps
+screen:mean-specific-heat

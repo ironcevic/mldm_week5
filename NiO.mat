@@ -1,0 +1,21 @@
+#===================================================
+# NiO material file for Vampire
+#===================================================
+
+#---------------------------------------------------
+# Number of Materials
+#---------------------------------------------------
+material:num-materials=1
+
+#---------------------------------------------------
+# Material 1: Ni (effective AFM model for NiO)
+# We shall ignore everything except the exchange coupling and atomic spin moment.
+#---------------------------------------------------
+material[1]:material-name=NiO_effective
+material[1]:damping-constant=1.0
+material[1]:exchange-matrix[1]= # your value here !J
+material[1]:atomic-spin-moment= # your value here !muB
+material[1]:second-order-uniaxial-anisotropy-constant=0.0
+material[1]:material-element=Ni
+material[1]:minimum-height=0.0
+material[1]:maximum-height=1.0

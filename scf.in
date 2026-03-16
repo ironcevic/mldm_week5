@@ -1,0 +1,44 @@
+ &CONTROL
+   calculation = 'scf',         ! type of calculation
+   outdir      = './'
+   prefix      = 'work',        ! name of calculation
+   pseudo_dir   = './',        ! directory of pseudopotentials
+ /
+
+ &SYSTEM
+   ibrav       = 0,            ! manually defined lattice
+   nat         = 4,            ! # of atoms in the unit cell
+   ntyp        = 3,            ! # of types of atoms in the unit cell
+   nspin       = 2,            ! spin-polarized calculation
+   starting_magnetization(1) = 2, ! initial magnetization for Ni1
+   starting_magnetization(2) = -2, ! initial magnetization for Ni2
+   starting_magnetization(3) = 0, ! initial magnetization for O
+   ecutwfc     = 75,      ! kinetic energy cutoff for psi
+   ecutrho     = 476,      ! kinetic energy cutoff for rho
+   occupations = 'smearing',   ! smear out populations
+   smearing    = 'cold',       ! smearing type
+   degauss     = 0.02,         ! smearing width
+ /
+
+ &ELECTRONS
+   conv_thr = 1.0d-8          ! convergence threshold
+ /
+
+ATOMIC_SPECIES
+Ni1  58.693 Ni.upf
+Ni2  58.693 Ni.upf
+O    15.999 O.upf
+
+ATOMIC_POSITIONS crystal
+Ni1     0.0 0.0 0.0
+Ni2     0.5 0.5 0.5
+O      0.25 0.25 0.25
+O      0.75 0.75 0.75   
+
+CELL_PARAMETERS angstrom
+        4.18     2.09        2.09
+        2.09     4.18        2.09
+        2.09     2.09        4.18
+
+K_POINTS automatic
+6 6 6 0 0 0 

@@ -1,0 +1,7 @@
+&DOS
+    prefix      = 'work',
+    outdir      = './',
+    Emin        = 5.0,
+    Emax        = 25.0,
+    DeltaE      = 0.02,
+ /

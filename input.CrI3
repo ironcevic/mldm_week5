@@ -1,0 +1,37 @@
+#------------------------------------------
+# CrI3 bilayer: field-induced spin-flip
+#------------------------------------------
+dimensions:unit-cell-size = 4.0 !A
+dimensions:system-size-x = 8.0 !nm
+dimensions:system-size-y = 8.0 !nm
+dimensions:system-size-z = 0.8 !nm
+
+#------------------------------------------
+# Material file
+#------------------------------------------
+material:file = CrI3.mat
+
+#------------------------------------------
+# Simulation attributes
+#------------------------------------------
+sim:temperature = 15.0
+sim:equilibration-time-steps = 50000
+sim:loop-time-steps = 100000
+sim:time-step = 1 !fs
+
+#------------------------------------------
+# Hysteresis field sweep
+#------------------------------------------
+sim:program = # program here 
+sim:integrator = monte-carlo
+
+#------------------------------------------
+# Data output
+#------------------------------------------
+output:applied-field-strength
+output:temperature
+output:mean-magnetisation-length
+
+screen:applied-field-strength
+screen:temperature
+screen:mean-magnetisation-length
