@@ -60,15 +60,13 @@ def plot_dos(e_range=5.0, file_name="work.dos", spin_polarized=True):
     if spin_polarized:
         dos_up = dos[:, 1]
         dos_dn = dos[:, 2]
-        ax.plot(dos[:, 0]-e_fermi, dos_up, color = colours["orange"], label="$\\uparrow$") 
-        ax.plot(dos[:, 0]-e_fermi, -dos_dn, color = colours["blue"], label="$\\downarrow$") 
+        ax.plot(dos[:, 0]-e_fermi, dos_up+dos_dn, color = "k") 
         ax.legend()
     else:  
         ax.plot(dos[:, 0]-e_fermi, dos[:, 1], color = "k") 
     ax.axvline(0, linestyle='dashed', color = "k") # fermi energy as vertical line
-    ax.axhline(0, linestyle='-', color = "k") # fermi energy as horizontal line
     ax.set_xlim(-e_range, e_range)
-    ax.set_ylim(-1.1 * np.max(dos[:, 1]), 1.1 * np.max(dos[:, 1]))
+    ax.set_ylim(0, 1.1 * np.max(dos[:, 1]))
     ax.set_ylabel("number of states")
     ax.tick_params(labelleft=False, left=False)
     fig.savefig(f"dos.pdf", bbox_inches='tight') # save the figure as a pdf

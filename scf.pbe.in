@@ -13,8 +13,8 @@
    starting_magnetization(1) = 2, ! initial magnetization for Ni1
    starting_magnetization(2) = -2, ! initial magnetization for Ni2
    starting_magnetization(3) = 0, ! initial magnetization for O
-   ecutwfc     = 75,      ! kinetic energy cutoff for psi
-   ecutrho     = 476,      ! kinetic energy cutoff for rho
+   ecutwfc     = 60,      ! kinetic energy cutoff for psi
+   ecutrho     = 400,      ! kinetic energy cutoff for rho
    occupations = 'smearing',   ! smear out populations
    smearing    = 'cold',       ! smearing type
    degauss     = 0.02,         ! smearing width
