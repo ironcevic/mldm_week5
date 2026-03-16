@@ -53,21 +53,21 @@ def plot_dos(e_range=5.0, file_name="work.dos", spin_polarized=True):
             e_fermi = float(first_line.split()[9])
         else:
             e_fermi = float(first_line.split()[8])
-    energy_limits = [e_fermi - e_range, e_fermi + e_range]
+    
     dos = np.genfromtxt(f"{file_name}", skip_header=1) 
 
     fig, ax = plt.subplots(1, 1)
     if spin_polarized:
         dos_up = dos[:, 1]
         dos_dn = dos[:, 2]
-        ax.plot(dos[:, 0], dos_up, color = colours["orange"], label="spin up") 
-        ax.plot(dos[:, 0], -dos_dn, color = colours["blue"], label="spin down") 
+        ax.plot(dos[:, 0]-e_fermi, dos_up, color = colours["orange"], label="$\\uparrow$") 
+        ax.plot(dos[:, 0]-e_fermi, -dos_dn, color = colours["blue"], label="$\\downarrow$") 
         ax.legend()
     else:  
-        ax.plot(dos[:, 0], dos[:, 1], color = "k") 
-    ax.axvline(e_fermi, linestyle='dashed', color = "k") # fermi energy as vertical line
+        ax.plot(dos[:, 0]-e_fermi, dos[:, 1], color = "k") 
+    ax.axvline(0, linestyle='dashed', color = "k") # fermi energy as vertical line
     ax.axhline(0, linestyle='-', color = "k") # fermi energy as horizontal line
-    ax.set_xlim(energy_limits)
+    ax.set_xlim(-e_range, e_range)
     ax.set_ylim(-1.1 * np.max(dos[:, 1]), 1.1 * np.max(dos[:, 1]))
     ax.set_ylabel("number of states")
     ax.tick_params(labelleft=False, left=False)
